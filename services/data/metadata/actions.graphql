@@ -1,0 +1,76 @@
+type Mutation {
+  changeProfilePassword (
+    data: ChangeProfilePasswordInput!
+  ): ChangeProfilePasswordOutput!
+}
+
+
+type Mutation {
+  changeUserPassword (
+    data: ChangeUserPasswordInput!
+  ): ChangeUserPasswordOutput!
+}
+
+
+type Mutation {
+  createUser (
+    data: CreateUserInput!
+  ): CreateUserOutput!
+}
+
+
+type Mutation {
+  login (
+    data: LoginInput!
+  ): LoginOutput!
+}
+
+
+
+
+input ChangeProfilePasswordInput {
+  oldPassword : String!
+  newPassword : String!
+}
+
+input ChangeUserPasswordInput {
+  userId : uuid!
+  password : String!
+}
+
+input CreateUserInput {
+  email : String!
+  password : String!
+  firstName : String!
+  lastName : String!
+  role : String!
+}
+
+input LoginInput {
+  email : String!
+  password : String!
+}
+
+type ChangeProfilePasswordOutput {
+  userId : uuid!
+}
+
+type ChangeUserPasswordOutput {
+  userId : uuid!
+}
+
+type CreateUserOutput {
+  id : String!
+}
+
+type LoginOutput {
+  id : String!
+  email : String!
+  firstName : String!
+  lastName : String!
+  role : String!
+  createdAt : String!
+  updatedAt : String!
+  token : String!
+}
+

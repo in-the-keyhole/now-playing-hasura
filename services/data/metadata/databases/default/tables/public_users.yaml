@@ -1,0 +1,51 @@
+table:
+  name: users
+  schema: public
+object_relationships:
+- name: createdUser
+  using:
+    manual_configuration:
+      column_mapping:
+        createdBy: id
+      insertion_order: null
+      remote_table:
+        name: users
+        schema: public
+- name: updatedUser
+  using:
+    manual_configuration:
+      column_mapping:
+        updatedBy: id
+      insertion_order: null
+      remote_table:
+        name: users
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - createdAt
+    - createdBy
+    - deleted
+    - email
+    - firstName
+    - id
+    - lastName
+    - role
+    - updatedAt
+    - updatedBy
+    filter: {}
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - deleted
+    - email
+    - firstName
+    - lastName
+    - role
+    filter: {}
+    set:
+      updatedBy: x-hasura-User-Id
+  role: user

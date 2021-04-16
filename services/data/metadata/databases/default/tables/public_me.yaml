@@ -1,0 +1,49 @@
+table:
+  name: me
+  schema: public
+select_permissions:
+- permission:
+    columns:
+    - createdAt
+    - createdBy
+    - email
+    - firstName
+    - id
+    - lastName
+    - password
+    - role
+    - updatedAt
+    - updatedBy
+    filter:
+      role:
+        _eq: anonymous
+    limit: 1
+  role: anonymous
+- permission:
+    columns:
+    - createdAt
+    - createdBy
+    - deleted
+    - email
+    - firstName
+    - id
+    - lastName
+    - role
+    - updatedAt
+    - updatedBy
+    filter:
+      id:
+        _eq: X-Hasura-User-Id
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - firstName
+    - lastName
+    filter:
+      id:
+        _eq: X-Hasura-User-Id
+    set:
+      updatedBy: x-hasura-User-Id
+  role: user

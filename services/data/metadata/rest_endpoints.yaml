@@ -1,0 +1,9 @@
+- definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Movies List
+  url: movies
+  methods:
+  - GET
+  name: Movies List
+  comment: null

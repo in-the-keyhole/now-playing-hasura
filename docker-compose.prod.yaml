@@ -1,0 +1,35 @@
+version: "3.7"
+
+# yaml refs
+x-refs:
+  common_config: &common_config
+    logging:
+      driver: gcplogs
+      options: 
+        gcp-project: ${GCP_PROJECT}
+
+  api_config: &api_config
+    environment:
+      NODE_ENV: production
+
+
+services:
+  postgres:
+    <<: *common_config
+
+  auths:
+    <<: *common_config
+    environment:
+      NODE_ENV: production
+
+  data:
+    environment:
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "false"
+      
+  events:
+    <<: *common_config
+    <<: *api_config
+
+  actions:
+    <<: *common_config
+    <<: *api_config

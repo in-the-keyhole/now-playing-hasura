@@ -1,0 +1,4 @@
+- "!include public_me.yaml"
+- "!include public_movies.yaml"
+- "!include public_status.yaml"
+- "!include public_users.yaml"
