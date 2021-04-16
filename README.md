@@ -4,9 +4,9 @@ Based on the [Hasura TypeScript Boilerplate](https://github.com/hgiasac/hasura-t
 
 ## Setup
 
-Copy the `dotenv` file and rename the copy to .env - the default values can be left for now.
+Copy the `dotenv` file and rename the copy to `.env` - the default values can be left for now.
 
-In docker-compose.yaml, uncomment the appropriate image for graphql-engine (data service).
+In `docker-compose.yaml`, uncomment the appropriate image for graphql-engine (`data` service).
 
 Run `make dev` to initiate the `docker compose` script.
 
@@ -22,7 +22,7 @@ hasura console --admin-secret hasura --endpoint http://localhost:8123
 
 ## Data
 
-In the API tab of the hasura console:
+In the API tab of the Hasura console:
 
 - Create a user account
 
@@ -65,3 +65,4 @@ If you're feeling adventurous, try creating some users with either "user" or "ad
 
 - many features
 - much wow
+- TODO: blog
